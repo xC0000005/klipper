@@ -220,6 +220,12 @@ usb_set_configure(void)
 void
 usb_init(void)
 {
+    // PB9 ocontrols a USB pullup transistor
+    LL_GPIO_SetPinMode(GPIOB, LL_GPIO_PIN_12, LL_GPIO_MODE_OUTPUT);
+    LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_9);
+    LL_mDelay(5);
+    LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_9);
+
     // Pull the D+ pin low briefly to signal a new connection
     LL_GPIO_ResetOutputPin(GPIOA, LL_GPIO_PIN_12);
     LL_GPIO_SetPinMode(GPIOA, LL_GPIO_PIN_12, LL_GPIO_MODE_OUTPUT);
