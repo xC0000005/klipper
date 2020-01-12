@@ -48,6 +48,9 @@ target-y += $(OUT)klipper.bin
 $(OUT)klipper.bin: $(OUT)klipper.elf
 	@echo "  Creating hex file $@"
 	$(Q)$(OBJCOPY) -O binary $< $@
+	
+	@echo "  Encrypting Firmware $@"
+	$(Q)$(PYTHON) ./scripts/encrypt_firmware.py -t $(FIRMWARE_ENCRYPTION) -s $(OUT)klipper.bin
 
 # Flash rules
 flash: $(OUT)klipper.bin
