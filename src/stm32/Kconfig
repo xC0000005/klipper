@@ -135,6 +135,8 @@ config CLOCK_REF_FREQ
 
 choice
     prompt "Fimrware Encryption" if LOW_LEVEL_OPTIONS
+    config NO_ENCRYPTION
+        bool "None"
     config CHITU_F_ENCRYPTION
         bool "Chitu-F Encryption"
     config LERDGE_X_ENCRYPTION
@@ -148,7 +150,7 @@ config FIRMWARE_ENCRYPTION
     default "CHITUF" if CHITU_F_ENCRYPTION
     default "LERDGEX" if LERDGE_X_ENCRYPTION
     default "LERDGEK" if LERDGE_K_ENCRYPTION
-    default ""
+    default "" if NO_ENCRYPTION
 
 config USBSERIAL
     bool "Use USB for communication (instead of serial)"
