@@ -138,11 +138,11 @@ choice
     config NO_ENCRYPTION
         bool "None"
     config CHITU_F_ENCRYPTION
-        bool "Chitu-F Encryption"
+        bool "Chitu-F"
     config LERDGE_X_ENCRYPTION
-        bool "Lerdge X Encryption"
+        bool "Lerdge X"
     config LERDGE_K_ENCRYPTION
-        bool "Lerdge K Encryption"
+        bool "Lerdge K"
 endchoice
 
 config FIRMWARE_ENCRYPTION
