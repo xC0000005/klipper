@@ -136,7 +136,7 @@ config CLOCK_REF_FREQ
 choice
     prompt "Fimrware Encryption" if LOW_LEVEL_OPTIONS
     config CHITU_F_ENCRYPTION
-        bool Chitu-F Encryption"
+        bool "Chitu-F Encryption"
     config LERDGE_X_ENCRYPTION
         bool "Lerdge X Encryption"
     config LERDGE_K_ENCRYPTION
