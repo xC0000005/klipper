@@ -50,7 +50,7 @@ $(OUT)klipper.bin: $(OUT)klipper.elf
 	$(Q)$(OBJCOPY) -O binary $< $@
 	
 	@echo "  Encrypting Firmware $@"
-	$(Q)$(PYTHON) ./scripts/encrypt_firmware.py -t $(FIRMWARE_ENCRYPTION) -s $(OUT)klipper.bin
+	$(Q)$(PYTHON) ./scripts/encrypt_firmware.py -t $(CONFIG_FIRMWARE_ENCRYPTION) -o $(OUT) -s $(OUT)klipper.bin
 
 # Flash rules
 flash: $(OUT)klipper.bin
