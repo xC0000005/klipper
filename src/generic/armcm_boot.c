@@ -27,7 +27,10 @@ ResetHandler(void)
 {
     // If there was a bootloader, there may be ISRs running which use
     // Memory addresses to interact with propriatary software. 
-    __disable_irq();
+    {
+        __ASM volatile ("cpsid i" : : : "memory");
+    }
+
 
     // Copy global variables from flash to ram
     uint32_t count = (&_data_end - &_data_start) * 4;
