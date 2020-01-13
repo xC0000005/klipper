@@ -25,6 +25,10 @@ extern uint32_t _bss_start, _bss_end, _stack_start;
 void
 ResetHandler(void)
 {
+    // If there was a bootloader, there may be ISRs running which use
+    // Memory addresses to interact with propriatary software. 
+    __disable_irq()
+
     // Copy global variables from flash to ram
     uint32_t count = (&_data_end - &_data_start) * 4;
     __builtin_memcpy(&_data_start, &_data_flash, count);
