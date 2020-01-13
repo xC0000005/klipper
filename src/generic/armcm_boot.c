@@ -28,7 +28,7 @@ ResetHandler(void)
     // If there was a bootloader, there may be ISRs running which use
     // Memory addresses to interact with propriatary software. 
     {
-        __ASM volatile ("cpsid i" : : : "memory");
+        __asm volatile ("cpsid i" : : : "memory");
     }
 
 
