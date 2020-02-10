@@ -106,6 +106,14 @@ choice
     config STM32_FLASH_START_0000
         bool "No bootloader"
 endchoice
+
+config BOOTLOADER_SIZE
+    hex
+    default 0x2000 if STM32_FLASH_START_2000
+    default 0x7000 if STM32_FLASH_START_7000
+    default 0x8000 if STM32_FLASH_START_8000
+    default 0x0000
+
 config FLASH_START
     hex
     default 0x8002000 if STM32_FLASH_START_2000
