@@ -57,8 +57,7 @@ DECL_ARMCM_IRQ(ResetHandler, -15);
 void
 DefaultHandler(void)
 {
-    for (;;)
-        ;
+    return;
 }
 
 
