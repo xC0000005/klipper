@@ -100,6 +100,10 @@ choice
         bool "28KiB bootloader" if MACH_STM32F103
     config STM32_FLASH_START_8000
         bool "32KiB bootloader (SKR-PRO)" if MACH_STM32F407
+    config STM32_FLASH_START_10000
+        bool "64KiB bootloader (Lerdge)" if MACH_STM32F407
+    config STM32_FLASH_START_8800
+        bool "34KiB bootloader (Chitu-F)" if MACH_STM32F103
     config STM32_FLASH_START_0000
         bool "No bootloader"
 endchoice
@@ -108,6 +112,8 @@ config FLASH_START
     default 0x8002000 if STM32_FLASH_START_2000
     default 0x8007000 if STM32_FLASH_START_7000
     default 0x8008000 if STM32_FLASH_START_8000
+    default 0x8008800 if STM32_FLASH_START_8800
+    default 0x8010000 if STM32_FLASH_START_10000
     default 0x8000000
 
 config ARMCM_RAM_VECTORTABLE
